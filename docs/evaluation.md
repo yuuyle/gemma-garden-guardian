@@ -6,18 +6,20 @@ This file tracks whether the MVP behaves reliably enough for the hackathon demo.
 
 ## Test cases
 
+Use the sample set in `sample_data/images/tomato_web/` for the first evaluation pass.
+
 | Case | Image type | Expected behavior | Result |
 |---|---|---|---|
-| 1 | Healthy plant | Low risk, basic maintenance advice | Not run yet |
-| 2 | Yellowing leaves | Observes yellowing, avoids definitive diagnosis | Covered by mock wording |
-| 3 | Dry soil | Suggests checking soil moisture | Covered by mock action |
-| 4 | Weeds visible | Suggests safe weeding task | TODO |
-| 5 | Fruit visible | Mentions growth/harvest observation cautiously | TODO |
-| 6 | Blurry image | Mentions uncertainty and asks for better photo | TODO |
-| 7 | Poor angle | Suggests next photo angle | TODO |
-| 8 | Dark image | Mentions image quality limitation | TODO |
-| 9 | User notes conflict with image | Balances notes and image uncertainty | TODO |
-| 10 | No crop type | Asks for clarification or gives general advice | TODO |
+| 1 | Healthy plant | Low risk, basic maintenance advice | Sample available |
+| 2 | Leaf close-up | Observes visible leaf condition, avoids definitive diagnosis | Sample available |
+| 3 | Soil condition | Suggests checking soil moisture | Sample available |
+| 4 | Weeds visible | Suggests safe weeding task | Sample available |
+| 5 | Fruit visible | Mentions growth/harvest observation cautiously | Sample available |
+| 6 | Dry-looking/water-stress-like | Suggests checking soil moisture before watering | Derived sample available |
+| 7 | Blurry image | Mentions uncertainty and asks for better photo | Derived sample available |
+| 8 | Dark image | Mentions image quality limitation | Derived sample available |
+| 9 | Poor angle | Suggests next photo angle | Derived sample available |
+| 10 | No crop type | Gives general advice without overclaiming | App input case |
 
 ## Quality criteria
 

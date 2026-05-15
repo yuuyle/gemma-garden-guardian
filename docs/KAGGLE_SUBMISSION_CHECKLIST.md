@@ -9,7 +9,7 @@
 - [x] API keys and service account files are not committed
 - [x] `requirements.txt` is present
 - [ ] App runs locally
-- [ ] Sample images are included or linked with license clarity
+- [x] Sample images are included or linked with license clarity
 
 ## App
 

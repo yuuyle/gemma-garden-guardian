@@ -1,0 +1,17 @@
+# Tomato Sample Image Attribution
+
+These images are for demo/evaluation use in Gemma Garden Guardian.
+Files marked as derived were transformed locally from the listed Wikimedia Commons source.
+
+| Condition | Local file | Source | Author | License | Notes |
+|---|---|---|---|---|---|
+| 1. トマト全体 | `sample_data/images/tomato_web/01_tomato_whole_plant.jpg` | [File:Tomato plants in home garden.jpg](https://commons.wikimedia.org/wiki/File:Tomato_plants_in_home_garden.jpg) | Tulspal | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | Whole tomato plants in a home garden. |
+| 2. 葉のアップ | `sample_data/images/tomato_web/02_tomato_leaf_closeup.jpg` | [File:Healthy tomato leaves (7871755330).jpg](https://commons.wikimedia.org/wiki/File:Healthy_tomato_leaves_(7871755330).jpg) | Dwight Sipler from Stow, MA, USA | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | Close-up healthy tomato leaves. |
+| 3. 土の状態 | `sample_data/images/tomato_web/03_tomato_soil_condition.jpg` | [File:Tomatoseedlings.jpg](https://commons.wikimedia.org/wiki/File:Tomatoseedlings.jpg) | Golden Hound | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | Tomato seedlings in soil/peat pots. |
+| 4. 雑草がある状態 | `sample_data/images/tomato_web/04_tomato_weeds_context.jpg` | [File:20240906Solanum lycopersicum.jpg](https://commons.wikimedia.org/wiki/File:20240906Solanum_lycopersicum.jpg) | AnRo0002 | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | Wild tomato plant with surrounding vegetation; useful as weed/context sample. |
+| 5. 実がなっている状態 | `sample_data/images/tomato_web/05_tomato_fruiting.jpg` | [File:Tomato plant 01.JPG](https://commons.wikimedia.org/wiki/File:Tomato_plant_01.JPG) | Jithindop | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | Tomato plant with fruit. |
+| 6. 水不足っぽい状態 | `sample_data/images/tomato_web/06_tomato_water_stress_like_derived.jpg` | [File:Tomato plants in home garden.jpg](https://commons.wikimedia.org/wiki/File:Tomato_plants_in_home_garden.jpg) | Tulspal | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | Derived from the whole-plant sample to simulate a dry-looking demo case. Not a real diagnosis label. |
+| 7. 問題なさそうな状態 | `sample_data/images/tomato_web/07_tomato_healthy.jpg` | [File:Tomato plant garden.jpg](https://commons.wikimedia.org/wiki/File:Tomato_plant_garden.jpg) | பிருந்தா சுப்ரமணி | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | General tomato plant garden image for healthy/normal-looking sample. |
+| 8. ぼやけた写真 | `sample_data/images/tomato_web/08_tomato_blurry_derived.jpg` | [File:Tomato plant 01.JPG](https://commons.wikimedia.org/wiki/File:Tomato_plant_01.JPG) | Jithindop | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | Derived from a licensed tomato plant photo to test blurry-image handling. |
+| 9. 夜・暗い写真 | `sample_data/images/tomato_web/09_tomato_dark_derived.jpg` | [File:Tomato plant garden.jpg](https://commons.wikimedia.org/wiki/File:Tomato_plant_garden.jpg) | பிருந்தா சுப்ரமணி | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | Derived from a licensed tomato plant photo to test low-light handling. |
+| 10. 角度が悪い写真 | `sample_data/images/tomato_web/10_tomato_bad_angle_derived.jpg` | [File:Tomato plants in home garden.jpg](https://commons.wikimedia.org/wiki/File:Tomato_plants_in_home_garden.jpg) | Tulspal | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | Derived from a licensed tomato plant photo to test poor-angle handling. |

@@ -18,6 +18,7 @@ The current MVP runs in mock mode by default and does not require Google Cloud c
 - JSONL observation history
 - Risk score and previous-observation comparison
 - Weekly report summary from recent observations
+- Web-collected tomato sample image set with attribution
 - Safety-first wording that avoids definitive plant disease diagnosis
 
 ## Quick Start
@@ -75,6 +76,23 @@ Do not commit `.env`, service account JSON files, API keys, or other secrets.
 This is not a plant disease diagnosis tool. The app describes visible signs, possible risks, and practical next steps using cautious wording such as "may indicate" and "visible signs suggest". For high-risk decisions, users should confirm locally and consider consulting an agricultural extension service or local expert.
 
 The app does not recommend specific pesticide usage. Any pesticide-related decisions should follow local regulations and product labels.
+
+## Sample Images
+
+The repository includes a small tomato sample set for mock demos and evaluation:
+
+```text
+sample_data/images/tomato_web/
+```
+
+The set covers whole plant, leaf close-up, soil condition, weeds/context, fruiting, dry-looking, healthy-looking, blurry, dark, and poor-angle cases. Attribution and licenses are recorded in:
+
+```text
+sample_data/images/tomato_web/ATTRIBUTION.md
+sample_data/images/tomato_web/manifest.json
+```
+
+See `docs/sample_images.md` for details. Some difficult photo-quality cases are derived from licensed Wikimedia Commons images and are marked as derived.
 
 ## Project Structure
 

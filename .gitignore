@@ -1,0 +1,11 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+.streamlit/secrets.toml
+*.service-account.json
+service-account*.json
+data/*.jsonl
+assets/screenshots/*.png

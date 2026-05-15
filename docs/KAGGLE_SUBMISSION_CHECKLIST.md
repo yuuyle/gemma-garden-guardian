@@ -2,27 +2,27 @@
 
 ## Repository
 
-- [ ] GitHub repository is public
-- [ ] README explains the project clearly
-- [ ] Setup instructions are included
-- [ ] `.env` is not committed
-- [ ] API keys and service account files are not committed
-- [ ] `requirements.txt` is present
+- [x] GitHub repository is public
+- [x] README explains the project clearly
+- [x] Setup instructions are included
+- [x] `.env` is not committed
+- [x] API keys and service account files are not committed
+- [x] `requirements.txt` is present
 - [ ] App runs locally
 - [ ] Sample images are included or linked with license clarity
 
 ## App
 
-- [ ] Image upload works
-- [ ] Crop type input works
-- [ ] User notes input works
-- [ ] Mock mode works
+- [x] Image upload works
+- [x] Crop type input works
+- [x] User notes input works
+- [x] Mock mode works
 - [ ] Gemma 4 mode works
-- [ ] JSON output is validated
-- [ ] API errors do not crash the app
-- [ ] Observation log is saved
-- [ ] Recommended actions are shown
-- [ ] Safety wording is used
+- [x] JSON output is validated
+- [x] API errors do not crash the app
+- [x] Observation log is saved
+- [x] Recommended actions are shown
+- [x] Safety wording is used
 
 ## Technical explanation
 
@@ -31,7 +31,7 @@
 - [ ] Structured output is explained
 - [ ] Tool layer is explained
 - [ ] Logging/history is explained
-- [ ] Architecture diagram is included
+- [x] Architecture diagram is included
 
 ## Video
 

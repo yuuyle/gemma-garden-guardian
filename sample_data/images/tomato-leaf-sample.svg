@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="640" viewBox="0 0 960 640" role="img" aria-labelledby="title desc">
+  <title id="title">Synthetic tomato leaf sample</title>
+  <desc id="desc">A simple generated garden sample image for mock-mode demos.</desc>
+  <rect width="960" height="640" fill="#f4f7ef"/>
+  <rect x="0" y="500" width="960" height="140" fill="#7f6f47"/>
+  <g stroke="#2f6b3f" stroke-width="14" stroke-linecap="round" fill="none">
+    <path d="M480 520 C470 430 470 350 486 250"/>
+    <path d="M482 390 C390 340 330 280 285 205"/>
+    <path d="M490 355 C585 305 645 250 690 175"/>
+    <path d="M484 295 C420 230 380 175 350 100"/>
+    <path d="M494 285 C565 220 610 165 640 92"/>
+  </g>
+  <g>
+    <ellipse cx="285" cy="205" rx="120" ry="58" transform="rotate(28 285 205)" fill="#4f9a55"/>
+    <ellipse cx="690" cy="175" rx="130" ry="60" transform="rotate(-31 690 175)" fill="#4a9551"/>
+    <ellipse cx="350" cy="100" rx="105" ry="54" transform="rotate(50 350 100)" fill="#5aa85c"/>
+    <ellipse cx="640" cy="92" rx="108" ry="52" transform="rotate(-48 640 92)" fill="#58a45b"/>
+    <ellipse cx="486" cy="250" rx="95" ry="48" transform="rotate(-8 486 250)" fill="#4d9853"/>
+  </g>
+  <g fill="#d3c94b" opacity="0.86">
+    <circle cx="252" cy="190" r="20"/>
+    <circle cx="318" cy="226" r="14"/>
+    <circle cx="662" cy="158" r="18"/>
+    <circle cx="713" cy="197" r="12"/>
+    <circle cx="459" cy="242" r="15"/>
+  </g>
+  <g fill="#c93d33">
+    <circle cx="585" cy="430" r="32"/>
+    <circle cx="632" cy="402" r="28"/>
+    <circle cx="545" cy="395" r="24"/>
+  </g>
+  <text x="40" y="588" font-family="Arial, sans-serif" font-size="28" fill="#2b3428">Synthetic sample for Gemma Garden Guardian mock demos</text>
+</svg>

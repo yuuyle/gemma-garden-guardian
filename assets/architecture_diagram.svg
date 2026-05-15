@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Gemma Garden Guardian Architecture</title>
+  <desc id="desc">Streamlit sends image and notes to Gemma 4, validates JSON, runs tools, and shows a dashboard.</desc>
+  <rect width="1280" height="720" fill="#f7faf5"/>
+  <style>
+    .box { fill: #ffffff; stroke: #6f8f72; stroke-width: 3; rx: 8; }
+    .title { font: 700 28px Arial, sans-serif; fill: #223322; }
+    .label { font: 22px Arial, sans-serif; fill: #243024; }
+    .small { font: 18px Arial, sans-serif; fill: #526052; }
+    .arrow { stroke: #436b46; stroke-width: 5; marker-end: url(#arrow); fill: none; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#436b46"/>
+    </marker>
+  </defs>
+  <text x="70" y="70" class="title">Gemma Garden Guardian MVP Architecture</text>
+  <rect x="70" y="140" width="210" height="120" class="box"/>
+  <text x="105" y="195" class="label">User</text>
+  <text x="105" y="225" class="small">photo + notes</text>
+  <path d="M280 200 H390" class="arrow"/>
+  <rect x="390" y="140" width="230" height="120" class="box"/>
+  <text x="425" y="190" class="label">Streamlit App</text>
+  <text x="425" y="220" class="small">mock or cloud mode</text>
+  <path d="M620 200 H730" class="arrow"/>
+  <rect x="730" y="140" width="240" height="120" class="box"/>
+  <text x="765" y="190" class="label">Gemma Client</text>
+  <text x="765" y="220" class="small">Vertex AI later</text>
+  <path d="M970 200 H1080" class="arrow"/>
+  <rect x="1080" y="140" width="150" height="120" class="box"/>
+  <text x="1115" y="190" class="label">Gemma 4</text>
+  <text x="1115" y="220" class="small">MaaS</text>
+  <path d="M850 260 V360" class="arrow"/>
+  <rect x="690" y="360" width="320" height="120" class="box"/>
+  <text x="725" y="410" class="label">JSON Schema Validation</text>
+  <text x="725" y="440" class="small">repair or fallback</text>
+  <path d="M690 420 H560" class="arrow"/>
+  <rect x="290" y="360" width="270" height="120" class="box"/>
+  <text x="325" y="410" class="label">Tool Layer</text>
+  <text x="325" y="440" class="small">todos, risk, JSONL</text>
+  <path d="M425 480 V570" class="arrow"/>
+  <rect x="290" y="570" width="270" height="95" class="box"/>
+  <text x="325" y="625" class="label">Dashboard + History</text>
+  <path d="M560 620 H730" class="arrow"/>
+  <rect x="730" y="570" width="280" height="95" class="box"/>
+  <text x="765" y="625" class="label">Kaggle Demo Assets</text>
+</svg>

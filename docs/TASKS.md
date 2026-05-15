@@ -21,29 +21,29 @@
 
 ## Phase 3: Gemma 4 integration
 
-- [ ] Implement `src/gemma_client.py`
-- [ ] Support mock mode via environment variable
-- [ ] Add Google Cloud configuration notes
-- [ ] Add API error handling
-- [ ] Add JSON validation
-- [ ] Add retry or fallback behavior
+- [x] Implement `src/gemma_client.py`
+- [x] Support mock mode via environment variable
+- [x] Add Google Cloud configuration notes
+- [x] Add API error handling
+- [x] Add JSON validation
+- [x] Add retry or fallback behavior
 
 ## Phase 4: Tool layer
 
-- [ ] Implement `log_observation()`
-- [ ] Implement `create_todo_items()`
-- [ ] Implement `calculate_risk_score()`
-- [ ] Implement `generate_weekly_report()`
-- [ ] Save observations to JSONL
+- [x] Implement `log_observation()`
+- [x] Implement `create_todo_items()`
+- [x] Implement `calculate_risk_score()`
+- [x] Implement `generate_weekly_report()`
+- [x] Save observations to JSONL
 
 ## Phase 5: Demo quality
 
-- [ ] Add sample images
-- [ ] Add history panel
-- [ ] Add previous observation comparison
+- [x] Add sample images
+- [x] Add history panel
+- [x] Add previous observation comparison
 - [ ] Add screenshots
-- [ ] Add architecture diagram
-- [ ] Add `evaluation.md`
+- [x] Add architecture diagram
+- [x] Add `evaluation.md`
 
 ## Phase 6: Submission
 
@@ -57,7 +57,7 @@
 
 ## Current priority
 
-Phase 1 and Phase 2 are complete. Next priority is Phase 3 and Phase 4.
+Phase 1 through Phase 4 are complete. Phase 5 is mostly complete; screenshots remain.
 
 The first milestone is:
 
@@ -66,3 +66,11 @@ streamlit run app.py
 ```
 
 The app should open, accept an image, and display a mock structured analysis result without requiring Google Cloud credentials.
+
+Next milestone:
+
+```text
+streamlit run app.py
+```
+
+Record screenshots and a short demo video using mock mode.

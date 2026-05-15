@@ -4,7 +4,7 @@
 
 Gemma Garden Guardian is a Streamlit demo for Kaggle's "The Gemma 4 Good Hackathon". It helps gardeners and small-scale growers upload a crop photo, add context, and receive a cautious structured analysis with visible observations, possible risks, recommended next actions, uncertainty, and follow-up photo suggestions.
 
-The current MVP runs in mock mode and does not require Google Cloud credentials.
+The current MVP runs in mock mode by default and does not require Google Cloud credentials.
 
 ## MVP Features
 
@@ -15,6 +15,9 @@ The current MVP runs in mock mode and does not require Google Cloud credentials.
 - Mock structured analysis result
 - JSON schema definition and validation
 - Dashboard for summary, risk level, observations, possible issues, and action todos
+- JSONL observation history
+- Risk score and previous-observation comparison
+- Weekly report summary from recent observations
 - Safety-first wording that avoids definitive plant disease diagnosis
 
 ## Quick Start
@@ -26,7 +29,7 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-Open the local Streamlit URL shown in your terminal, upload a crop photo, add optional crop context, and click **Analyze with mock Gemma response**.
+Open the local Streamlit URL shown in your terminal, upload a crop photo, add optional crop context, and click **Analyze crop photo**.
 
 ## Configuration
 
@@ -41,6 +44,29 @@ The app defaults to mock mode:
 ```text
 GEMMA_GARDEN_MODE=mock
 ```
+
+Observation logs are saved locally to:
+
+```text
+data/observations.jsonl
+```
+
+This log file is ignored by Git so demo data does not accidentally get committed.
+
+## Google Cloud Notes
+
+The app is structured for a future Vertex AI / Model Garden Gemma 4 integration. Keep mock mode on until Google Cloud authentication and the model endpoint are ready.
+
+Future cloud mode will use:
+
+```text
+GEMMA_GARDEN_MODE=vertex
+GOOGLE_CLOUD_PROJECT=<your-project-id>
+GOOGLE_CLOUD_LOCATION=us-central1
+GEMMA_MODEL_ID=gemma-4-26b-a4b-it-maas
+```
+
+At the moment, `vertex` mode fails safely into a validated mock fallback instead of crashing the app.
 
 Do not commit `.env`, service account JSON files, API keys, or other secrets.
 
@@ -69,14 +95,15 @@ The app does not recommend specific pesticide usage. Any pesticide-related decis
     images/
     sensor_logs/
     examples.jsonl
+  data/
+    observations.jsonl
   docs/
   assets/
 ```
 
 ## Next Milestones
 
-- Add Google Cloud / Vertex AI Gemma 4 integration
-- Save observations to JSONL
-- Generate todos from recommended actions
-- Add sample images, screenshots, and architecture diagram
+- Wire the real Google Cloud / Vertex AI Gemma 4 request
+- Capture app screenshots
+- Export a PNG architecture diagram for Kaggle
 - Finish Kaggle writeup and video script

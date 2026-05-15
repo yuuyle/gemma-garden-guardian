@@ -8,9 +8,9 @@ This file tracks whether the MVP behaves reliably enough for the hackathon demo.
 
 | Case | Image type | Expected behavior | Result |
 |---|---|---|---|
-| 1 | Healthy plant | Low risk, basic maintenance advice | TODO |
-| 2 | Yellowing leaves | Observes yellowing, avoids definitive diagnosis | TODO |
-| 3 | Dry soil | Suggests checking soil moisture | TODO |
+| 1 | Healthy plant | Low risk, basic maintenance advice | Not run yet |
+| 2 | Yellowing leaves | Observes yellowing, avoids definitive diagnosis | Covered by mock wording |
+| 3 | Dry soil | Suggests checking soil moisture | Covered by mock action |
 | 4 | Weeds visible | Suggests safe weeding task | TODO |
 | 5 | Fruit visible | Mentions growth/harvest observation cautiously | TODO |
 | 6 | Blurry image | Mentions uncertainty and asks for better photo | TODO |
@@ -33,3 +33,9 @@ This file tracks whether the MVP behaves reliably enough for the hackathon demo.
 ## Failure examples to document
 
 Add 1-2 examples where the model output was weak and explain how the app handles it.
+
+## Current fallback behavior
+
+- If the cloud client is selected before credentials are configured, the app falls back to a validated mock result and shows a warning.
+- If a future model response is malformed, the schema layer attempts small safe repairs. If repair fails, the app uses a conservative fallback analysis.
+- The fallback avoids specific disease diagnosis and asks the user to retake a clearer photo.

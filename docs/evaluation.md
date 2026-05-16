@@ -41,3 +41,11 @@ Add 1-2 examples where the model output was weak and explain how the app handles
 - If the cloud client is selected before credentials are configured, the app falls back to a validated mock result and shows a warning.
 - If a future model response is malformed, the schema layer attempts small safe repairs. If repair fails, the app uses a conservative fallback analysis.
 - The fallback avoids specific disease diagnosis and asks the user to retake a clearer photo.
+
+## Vertex smoke test
+
+Status: passed.
+
+Input: `sample_data/images/tomato_web/05_tomato_fruiting.jpg`
+
+Result: the client returned `source=vertex` and `used_fallback=False`, then validated the Gemma 4 JSON response.

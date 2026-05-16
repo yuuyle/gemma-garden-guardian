@@ -117,7 +117,8 @@ Future storage can be SQLite.
 Current MVP implementation:
 
 - `GEMMA_GARDEN_MODE=mock` is the default and requires no credentials.
-- `GEMMA_GARDEN_MODE=vertex` currently fails safely into a validated fallback until the real Vertex AI request is wired.
+- `GEMMA_GARDEN_MODE=vertex` calls Gemma 4 MaaS through the Google Gen AI SDK.
+- The preferred Gemma 4 MaaS model may require the `global` endpoint, so the client retries once with `global` if a regional endpoint returns that specific error.
 - Observations are saved to `data/observations.jsonl`.
 - The architecture diagram is available at `assets/architecture_diagram.png`.
 - The editable SVG source is available at `assets/architecture_diagram.svg`.

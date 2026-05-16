@@ -27,6 +27,9 @@
 - [x] Add API error handling
 - [x] Add JSON validation
 - [x] Add retry or fallback behavior
+- [x] Implement real Vertex AI / Gemma 4 MaaS API request
+- [x] Parse real Gemma 4 response into JSON
+- [x] Test `GEMMA_GARDEN_MODE=vertex`
 
 ## Phase 4: Tool layer
 
@@ -51,13 +54,13 @@
 - [ ] Finish Kaggle writeup draft
 - [ ] Finish video script
 - [ ] Record 3-minute demo
-- [ ] Publish GitHub repository
+- [x] Publish GitHub repository
 - [ ] Deploy live demo if possible
 - [ ] Submit to Kaggle
 
 ## Current priority
 
-Phase 1 through Phase 4 are complete. Phase 5 is mostly complete; screenshots remain.
+Phase 1 through Phase 4 are complete, including real Vertex AI / Gemma 4 MaaS smoke testing. Phase 5 is mostly complete; screenshots remain.
 
 The first milestone is:
 
@@ -73,4 +76,4 @@ Next milestone:
 streamlit run app.py
 ```
 
-Record screenshots and a short demo video using mock mode.
+Record screenshots and a short demo video. Use mock mode for cheap repeated takes, and vertex mode for one real Gemma 4 proof point.

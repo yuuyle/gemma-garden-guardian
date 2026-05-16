@@ -8,7 +8,7 @@
 - [x] `.env` is not committed
 - [x] API keys and service account files are not committed
 - [x] `requirements.txt` is present
-- [ ] App runs locally
+- [x] App runs locally
 - [x] Sample images are included or linked with license clarity
 
 ## App
@@ -17,7 +17,7 @@
 - [x] Crop type input works
 - [x] User notes input works
 - [x] Mock mode works
-- [ ] Gemma 4 mode works
+- [x] Gemma 4 mode works
 - [x] JSON output is validated
 - [x] API errors do not crash the app
 - [x] Observation log is saved
@@ -26,11 +26,11 @@
 
 ## Technical explanation
 
-- [ ] Gemma 4 usage is clearly described
-- [ ] Google Cloud / MaaS usage is clearly described
+- [x] Gemma 4 usage is clearly described
+- [x] Google Cloud / MaaS usage is clearly described
 - [ ] Structured output is explained
 - [ ] Tool layer is explained
-- [ ] Logging/history is explained
+- [x] Logging/history is explained
 - [x] Architecture diagram is included
 
 ## Video

@@ -63,11 +63,11 @@ Future cloud mode will use:
 ```text
 GEMMA_GARDEN_MODE=vertex
 GOOGLE_CLOUD_PROJECT=<your-project-id>
-GOOGLE_CLOUD_LOCATION=us-central1
+GOOGLE_CLOUD_LOCATION=global
 GEMMA_MODEL_ID=gemma-4-26b-a4b-it-maas
 ```
 
-At the moment, `vertex` mode fails safely into a validated mock fallback instead of crashing the app.
+For the preferred Gemma 4 MaaS model, Google may require the `global` endpoint. The client will also retry once with `global` if a regional endpoint returns that specific error.
 
 Do not commit `.env`, service account JSON files, API keys, or other secrets.
 

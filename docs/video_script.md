@@ -2,19 +2,19 @@
 
 Target length: approximately 3 minutes.
 
-## 0:00 - 0:20 — Problem
+## 0:00 - 0:20 - Problem
 
-Home gardeners and small-scale growers often notice crop problems too late.
+"Small-scale growers and home gardeners often spot changes in their plants before they know what those changes mean.
 
-A few yellow leaves, dry soil, new weeds, or unclear growth patterns can be hard to interpret, especially for beginners.
+A few yellow leaves, dry soil, weeds, or a blurry nighttime photo can be hard to interpret, especially for beginners or people without quick access to local experts."
 
-## 0:20 - 0:45 — Vision
+## 0:20 - 0:45 - Vision
 
-Gemma Garden Guardian is an AI field assistant powered by Gemma 4.
+"This is Gemma Garden Guardian: an AI field assistant for small-scale growers, powered by Gemma 4.
 
-The goal is not to replace farmers or experts. The goal is to help people observe better, act earlier, and grow with more confidence.
+The goal is not to replace farmers or plant experts. The goal is to help people observe more carefully, act earlier, and make safer next decisions."
 
-## 0:45 - 1:40 — Demo
+## 0:45 - 1:40 - Demo
 
 Show the Streamlit app.
 
@@ -22,30 +22,36 @@ Show the Streamlit app.
 2. Enter crop type.
 3. Add optional notes.
 4. Click analyze.
-5. Show Gemma 4 structured output:
+5. Show the dashboard:
    - summary
    - observations
-   - risk level
+   - risk score
+   - possible risks
    - recommended actions
    - uncertainty
    - next photo suggestions
-6. Show todos generated from the recommendations.
-7. Show observation log or previous comparison if implemented.
+6. Show todos, structured JSON, history, and weekly report.
 
 Narration:
 
-"Gemma 4 looks at the image and the gardener's notes, then returns a structured JSON result. The app validates that result and turns it into practical next actions."
+"Here I upload a tomato photo, enter the crop type, and add a short note. Gemma 4 reads the image and text together, then returns a structured JSON response.
 
-## 1:40 - 2:20 — Technical explanation
+The app validates that JSON before showing it. Instead of giving a definitive diagnosis, it describes visible signs, possible risks, uncertainty, and practical next actions. Those actions become simple todos, and the observation is saved to a local JSONL history."
 
-The MVP uses Google Cloud-hosted Gemma 4 instead of local inference because local hardware is limited.
+## 1:40 - 2:20 - Technical Explanation
+
+"The app is built with Python and Streamlit. It uses mock mode by default so development and video recording stay cheap and reliable.
+
+When cloud mode is enabled, the app calls Gemma 4 MaaS through Vertex AI using the Google Gen AI SDK. The request includes the image, crop type, notes, and a strict JSON output instruction.
+
+The local tool layer validates the JSON, creates todos, calculates a simple risk score, saves observations to JSONL, and generates a weekly report. If the API fails or the JSON is malformed, the app falls back safely instead of crashing."
 
 Key technical elements:
 
 - Gemma 4 multimodal input
 - crop image plus user notes
 - structured JSON output
-- function-calling-style local tools
+- local tool-style workflow
 - observation logging
 - safe, uncertainty-aware recommendations
 
@@ -55,20 +61,14 @@ Architecture:
 User → Streamlit → Gemma 4 → JSON → Tool Layer → Garden Dashboard
 ```
 
-## 2:20 - 2:45 — Impact
+## 2:20 - 2:45 - Impact
 
-This can help:
+"This can help home gardeners, small-scale growers, community gardens, elderly growers, and people with limited expert access.
 
-- home gardeners
-- small-scale growers
-- community gardens
-- elderly growers
-- people with limited expert access
+The impact is not just faster answers. It is helping people build a habit of better observation: taking clearer photos, checking soil moisture, comparing history, and knowing when to ask a local expert."
 
-It can support food resilience and digital equity by making basic crop observation more accessible.
+## 2:45 - 3:00 - Closing
 
-## 2:45 - 3:00 — Closing
+"Gemma Garden Guardian turns everyday garden photos into safer, clearer next actions.
 
-Gemma Garden Guardian helps people turn everyday garden photos into safer, clearer next actions.
-
-AI should not replace growers. It should help them observe, learn, and act with confidence.
+AI should not replace growers. It should help them observe, learn, and act with confidence."

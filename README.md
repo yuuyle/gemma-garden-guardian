@@ -4,7 +4,7 @@
 
 Gemma Garden Guardian is a Streamlit demo for Kaggle's "The Gemma 4 Good Hackathon". It helps gardeners and small-scale growers upload a crop photo, add context, and receive a cautious structured analysis with visible observations, possible risks, recommended next actions, uncertainty, and follow-up photo suggestions.
 
-The current MVP runs in mock mode by default and does not require Google Cloud credentials.
+The MVP runs in mock mode by default for low-cost development, and it can call Gemma 4 MaaS on Vertex AI when Google Cloud credentials are configured.
 
 ## MVP Features
 
@@ -13,6 +13,7 @@ The current MVP runs in mock mode by default and does not require Google Cloud c
 - Crop type input
 - User notes input
 - Mock structured analysis result
+- Real Gemma 4 MaaS mode through Vertex AI
 - JSON schema definition and validation
 - Dashboard for summary, risk level, observations, possible issues, and action todos
 - JSONL observation history
@@ -56,9 +57,9 @@ This log file is ignored by Git so demo data does not accidentally get committed
 
 ## Google Cloud Notes
 
-The app is structured for a future Vertex AI / Model Garden Gemma 4 integration. Keep mock mode on until Google Cloud authentication and the model endpoint are ready.
+Mock mode is best for repeated development and recording takes. Vertex mode calls Gemma 4 MaaS through the Google Gen AI SDK.
 
-Future cloud mode will use:
+Cloud mode uses:
 
 ```text
 GEMMA_GARDEN_MODE=vertex
@@ -70,6 +71,25 @@ GEMMA_MODEL_ID=gemma-4-26b-a4b-it-maas
 For the preferred Gemma 4 MaaS model, Google may require the `global` endpoint. The client will also retry once with `global` if a regional endpoint returns that specific error.
 
 Do not commit `.env`, service account JSON files, API keys, or other secrets.
+
+## Deployment
+
+Cloud Run deployment files are included:
+
+```text
+Dockerfile
+docs/DEPLOYMENT.md
+```
+
+For public demos, deploy in mock mode first, then switch to `vertex` mode only when you want to demonstrate the real Gemma 4 call.
+
+## Submission Assets
+
+- Kaggle writeup draft: `docs/kaggle_writeup_draft.md`
+- Video script: `docs/video_script.md`
+- Screenshot guide: `docs/screenshots.md`
+- Architecture diagram: `assets/architecture_diagram.png`
+- Sample image attribution: `sample_data/images/tomato_web/ATTRIBUTION.md`
 
 ## Responsible Use
 
@@ -121,7 +141,6 @@ See `docs/sample_images.md` for details. Some difficult photo-quality cases are 
 
 ## Next Milestones
 
-- Wire the real Google Cloud / Vertex AI Gemma 4 request
 - Capture app screenshots
-- Export a PNG architecture diagram for Kaggle
-- Finish Kaggle writeup and video script
+- Record a 3-minute demo video
+- Submit the GitHub URL, video URL, and writeup to Kaggle

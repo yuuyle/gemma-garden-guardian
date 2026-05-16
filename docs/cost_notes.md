@@ -10,6 +10,7 @@ This may incur API usage costs. The app should be designed to reduce unnecessary
 
 - Use mock mode by default during development.
 - Only call Gemma 4 when explicitly requested.
+- Use Cloud Run mock mode for public demo links unless real Gemma 4 proof is required.
 - Cache results for repeated demo inputs if practical.
 - Limit image size before sending.
 - Limit history context length.

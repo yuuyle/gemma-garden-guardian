@@ -1,10 +1,8 @@
-# Kaggle Writeup Draft
-
 # Gemma Garden Guardian: An AI Field Assistant for Small-Scale Growers
 
 ## Problem
 
-Small-scale growers and home gardeners often notice changes in their crops too late. Yellowing leaves, dry soil, weeds, pests, poor image conditions, and uncertain harvest timing can be difficult to interpret, especially for beginners or people without access to local experts.
+Small-scale growers and home gardeners often notice crop problems too late. Yellowing leaves, dry soil, weeds, pest-like signs, poor photo quality, and uncertain harvest timing can be difficult to interpret, especially for beginners or people without easy access to local experts.
 
 This project explores how Gemma 4 can help people observe their gardens more carefully and take safer next actions.
 
@@ -21,7 +19,7 @@ Gemma Garden Guardian is designed for:
 
 ## What we built
 
-Gemma Garden Guardian is a photo-based AI field assistant.
+Gemma Garden Guardian is a photo-based AI field assistant built with Python and Streamlit.
 
 Users upload a crop or garden photo, enter the crop type and optional notes, and receive a structured analysis with:
 
@@ -36,15 +34,15 @@ The app also logs observations and converts recommended actions into simple todo
 
 ## How Gemma 4 is used
 
-The project uses Gemma 4 through Google Cloud rather than local inference.
+The project uses Gemma 4 through Google Cloud / Vertex AI MaaS rather than local inference. This keeps the demo practical on ordinary hardware while still showing multimodal Gemma 4 usage.
 
 Gemma 4 is used for:
 
 - multimodal crop photo understanding
 - combining image and text notes
 - generating structured JSON output
-- supporting a function-calling-style tool workflow
-- summarizing previous observations
+- supporting a tool-style local workflow
+- providing input for local logging, todo generation, risk scoring, and reporting
 - producing uncertainty-aware recommendations
 
 Preferred model:
@@ -83,12 +81,17 @@ Key implementation elements:
 
 - image upload UI
 - mock mode for low-cost development
-- Gemma 4 client
+- real Gemma 4 MaaS mode using the Google Gen AI SDK
 - JSON schema validation
+- JSON repair/fallback behavior
 - JSONL observation logging
 - todo generation from recommended actions
+- risk score and previous observation comparison
+- weekly report generation
+- sample tomato images with attribution
 - safe output wording
-- optional previous observation comparison
+
+The app asks Gemma 4 for a JSON object with visible observations, possible risks, recommended actions, uncertainty, and next photo suggestions. The local app validates the JSON before displaying it. If the cloud request fails or the model output cannot be validated, the app falls back to a conservative response instead of crashing.
 
 ## Responsible use
 
@@ -103,6 +106,8 @@ The app avoids definitive claims and uses uncertainty-aware language such as:
 
 It does not provide specific pesticide instructions.
 
+For high-risk decisions, users should confirm by checking the plant in person and consider local agricultural advice.
+
 ## Impact and future vision
 
 Gemma Garden Guardian can help small-scale growers act earlier, learn from repeated observations, and reduce avoidable crop loss.
@@ -111,6 +116,7 @@ Future improvements could include:
 
 - sensor CSV integration
 - local crop adaptation
-- offline Gemma deployment on edge devices
-- fine-tuning for region-specific crops
+- Cloud Run public deployment
+- stronger evaluation across more crop types
+- region-specific gardening guidance
 - community garden monitoring workflows

@@ -47,14 +47,16 @@
 - [ ] Add screenshots
 - [x] Add architecture diagram
 - [x] Add `evaluation.md`
+- [x] Add screenshot capture guide
 
 ## Phase 6: Submission
 
-- [ ] Finish README
-- [ ] Finish Kaggle writeup draft
-- [ ] Finish video script
+- [x] Finish README
+- [x] Finish Kaggle writeup draft
+- [x] Finish video script
 - [ ] Record 3-minute demo
 - [x] Publish GitHub repository
+- [x] Add Cloud Run deployment docs
 - [ ] Deploy live demo if possible
 - [ ] Submit to Kaggle
 

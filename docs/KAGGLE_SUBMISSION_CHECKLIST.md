@@ -32,25 +32,26 @@
 - [ ] Tool layer is explained
 - [x] Logging/history is explained
 - [x] Architecture diagram is included
+- [x] Cloud Run deployment docs are included
 
 ## Video
 
 - [ ] Video is around 3 minutes
-- [ ] Problem is explained first
-- [ ] Live demo is shown
-- [ ] Gemma 4 usage is explained
-- [ ] Impact is explained
+- [x] Problem is explained first
+- [x] Live demo is shown
+- [x] Gemma 4 usage is explained
+- [x] Impact is explained
 - [ ] Video is uploaded to YouTube or another accessible platform
 - [ ] Video URL is public or unlisted-accessible
 
 ## Kaggle Writeup
 
-- [ ] Problem statement is clear
-- [ ] Target users are clear
-- [ ] Solution is clear
-- [ ] Technical implementation is clear
-- [ ] Impact and vision are clear
-- [ ] Limitations are included
+- [x] Problem statement is clear
+- [x] Target users are clear
+- [x] Solution is clear
+- [x] Technical implementation is clear
+- [x] Impact and vision are clear
+- [x] Limitations are included
 - [ ] GitHub URL is included
 - [ ] Demo URL is included if available
 - [ ] Video URL is included

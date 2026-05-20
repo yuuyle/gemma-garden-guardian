@@ -137,3 +137,23 @@ Define the expected Gemma response shape in `src/schemas.py` using JSON Schema a
 - The UI and mock data already exercise the same structure intended for Gemma 4 output
 - Future repair and fallback logic can build on the same schema
 - The implementation stays small enough for the hackathon MVP
+
+## Decision 007: Build the 3-minute demo video as a replaceable HyperFrames composition
+
+### Status
+
+Accepted
+
+### Context
+
+The final Kaggle submission needs a polished 3-minute demo video, but the real app screen recording may be captured later.
+
+### Decision
+
+Create a HyperFrames-ready HTML composition in `demo_video/` based on `docs/video_script.md`. The app demo segment is represented by a Streamlit-style placeholder that can be replaced with real screen recording footage later.
+
+### Consequences
+
+- The video can be reviewed before the final screen recording exists
+- The visual structure follows the existing narration script
+- Real footage can be swapped into the 0:45-1:40 segment without rewriting the whole video

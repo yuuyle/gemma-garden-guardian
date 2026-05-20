@@ -1,0 +1,719 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gemma Garden Guardian - 3 Minute Demo</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #f7fbf6;
+      --muted: #b9c8bc;
+      --leaf: #62d27e;
+      --mint: #d9ffe4;
+      --soil: #8b6548;
+      --tomato: #f25f4c;
+      --sky: #7dd3fc;
+      --panel: rgba(12, 24, 18, 0.78);
+      --line: rgba(255, 255, 255, 0.16);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #07100b;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      overflow: hidden;
+    }
+
+    #stage {
+      position: relative;
+      width: 960px;
+      height: 540px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 12% 14%, rgba(98, 210, 126, 0.25), transparent 28%),
+        radial-gradient(circle at 86% 24%, rgba(125, 211, 252, 0.20), transparent 30%),
+        linear-gradient(140deg, #07100b 0%, #102718 52%, #172719 100%);
+    }
+
+    .scene {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1920px;
+      height: 1080px;
+      padding: 82px 112px;
+      opacity: 1;
+      transform: scale(0.5);
+      transform-origin: top left;
+    }
+
+    .bg-photo {
+      position: absolute;
+      inset: -22px;
+      background-image:
+        linear-gradient(90deg, rgba(7, 16, 11, 0.84), rgba(7, 16, 11, 0.18) 55%, rgba(7, 16, 11, 0.62)),
+        url("../assets/thumbnail.png");
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.04);
+      animation: slowPush 20s ease-out both;
+    }
+
+    @keyframes slowPush {
+      from { transform: scale(1.04) translate3d(0, 0, 0); }
+      to { transform: scale(1.12) translate3d(-28px, -10px, 0); }
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 16px;
+      border: 1px solid var(--line);
+      background: rgba(7, 16, 11, 0.60);
+      border-radius: 999px;
+      color: var(--mint);
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 99px;
+      background: var(--leaf);
+      box-shadow: 0 0 24px rgba(98, 210, 126, 0.80);
+    }
+
+    h1 {
+      margin: 26px 0 24px;
+      max-width: 1040px;
+      font-size: 104px;
+      line-height: 0.95;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 0 0 28px;
+      max-width: 1160px;
+      font-size: 72px;
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0;
+      max-width: 950px;
+      color: var(--muted);
+      font-size: 34px;
+      line-height: 1.42;
+    }
+
+    .subtitle {
+      position: absolute;
+      left: 112px;
+      right: 112px;
+      bottom: 56px;
+      padding: 24px 30px;
+      border: 1px solid var(--line);
+      background: rgba(7, 16, 11, 0.78);
+      border-radius: 8px;
+      font-size: 30px;
+      line-height: 1.34;
+      color: #edf8ee;
+    }
+
+    .problem-grid {
+      position: absolute;
+      right: 96px;
+      top: 126px;
+      display: grid;
+      grid-template-columns: repeat(2, 260px);
+      gap: 18px;
+    }
+
+    .problem-card {
+      min-height: 214px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(13, 28, 20, 0.78);
+      backdrop-filter: blur(18px);
+    }
+
+    .problem-icon {
+      width: 62px;
+      height: 62px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.08);
+      font-size: 36px;
+    }
+
+    .problem-card strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 27px;
+    }
+
+    .problem-card span {
+      color: var(--muted);
+      font-size: 21px;
+      line-height: 1.34;
+    }
+
+    .device-wrap {
+      position: absolute;
+      right: 104px;
+      top: 92px;
+      width: 685px;
+      height: 850px;
+      perspective: 1600px;
+    }
+
+    .phone {
+      position: absolute;
+      inset: 0;
+      padding: 28px;
+      border-radius: 54px;
+      background: linear-gradient(145deg, #1b241f, #030806);
+      box-shadow: 0 50px 120px rgba(0, 0, 0, 0.45);
+      transform: rotateY(-10deg) rotateX(4deg);
+    }
+
+    .phone-screen {
+      position: relative;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 34px;
+      background:
+        linear-gradient(180deg, rgba(7, 16, 11, 0.08), rgba(7, 16, 11, 0.40)),
+        url("../sample_data/images/tomato_web/05_tomato_fruiting.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .scan-line {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, transparent, var(--leaf), transparent);
+      box-shadow: 0 0 28px rgba(98, 210, 126, 0.9);
+      animation-name: scan;
+      animation-duration: 3800ms;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: 15;
+      animation-fill-mode: both;
+    }
+
+    @keyframes scan {
+      0% { top: 13%; opacity: 0; }
+      14%, 86% { opacity: 1; }
+      100% { top: 82%; opacity: 0; }
+    }
+
+    .marker {
+      position: absolute;
+      width: 34px;
+      height: 34px;
+      border: 3px solid var(--leaf);
+      border-radius: 50%;
+      box-shadow: 0 0 32px rgba(98, 210, 126, 0.7);
+    }
+
+    .marker::after {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border-radius: 50%;
+      background: rgba(98, 210, 126, 0.72);
+    }
+
+    .m1 { left: 45%; top: 27%; }
+    .m2 { left: 22%; top: 54%; animation-delay: 0.5s; }
+    .m3 { left: 62%; top: 64%; animation-delay: 1s; }
+
+    .mini-panel {
+      position: absolute;
+      left: 28px;
+      right: 28px;
+      bottom: 28px;
+      padding: 22px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 8px;
+      background: rgba(7, 16, 11, 0.76);
+      backdrop-filter: blur(16px);
+    }
+
+    .risk-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      font-size: 22px;
+      color: var(--mint);
+    }
+
+    .bar {
+      height: 12px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+    }
+
+    .bar span {
+      display: block;
+      width: 56%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--leaf), #ffd166);
+    }
+
+    .browser {
+      position: absolute;
+      left: 96px;
+      right: 96px;
+      top: 94px;
+      bottom: 118px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #f5f7f3;
+      color: #132017;
+      overflow: hidden;
+      box-shadow: 0 48px 130px rgba(0, 0, 0, 0.46);
+    }
+
+    .browser-top {
+      height: 58px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 22px;
+      background: #e6ebe4;
+      border-bottom: 1px solid #d4ddd2;
+    }
+
+    .browser-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 99px;
+      background: #9aa79a;
+    }
+
+    .app-grid {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      height: calc(100% - 58px);
+    }
+
+    .sidebar {
+      padding: 30px 28px;
+      background: #f0f5ef;
+      border-right: 1px solid #d9e2d7;
+    }
+
+    .field {
+      margin-top: 20px;
+      padding: 18px;
+      border: 1px solid #d0dbce;
+      border-radius: 8px;
+      background: white;
+      color: #4b5a4f;
+      font-size: 24px;
+    }
+
+    .upload-box {
+      height: 228px;
+      display: grid;
+      place-items: center;
+      color: #4f6b58;
+      background:
+        linear-gradient(rgba(255,255,255,0.36), rgba(255,255,255,0.36)),
+        url("../sample_data/images/tomato_web/02_tomato_leaf_closeup.jpg");
+      background-size: cover;
+      background-position: center;
+      font-weight: 800;
+    }
+
+    .button {
+      margin-top: 22px;
+      padding: 18px;
+      border-radius: 8px;
+      text-align: center;
+      color: #06200d;
+      background: var(--leaf);
+      font-weight: 900;
+      font-size: 24px;
+    }
+
+    .main {
+      padding: 30px 34px;
+      background: #fbfdf9;
+    }
+
+    .headline-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .headline-row h3 {
+      margin: 0;
+      font-size: 36px;
+      letter-spacing: 0;
+    }
+
+    .status-pill {
+      padding: 10px 16px;
+      border-radius: 999px;
+      color: #0e3d19;
+      background: #dff8e5;
+      font-weight: 900;
+      font-size: 22px;
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 20px;
+    }
+
+    .dash-card {
+      min-height: 182px;
+      padding: 22px;
+      border: 1px solid #dce5da;
+      border-radius: 8px;
+      background: white;
+      box-shadow: 0 10px 28px rgba(38, 65, 45, 0.08);
+    }
+
+    .dash-card h4 {
+      margin: 0 0 14px;
+      color: #183821;
+      font-size: 24px;
+    }
+
+    .dash-card li {
+      margin: 10px 0;
+      color: #405548;
+      font-size: 22px;
+      line-height: 1.24;
+    }
+
+    .score {
+      font-size: 76px;
+      line-height: 1;
+      font-weight: 950;
+      color: #2a8f45;
+    }
+
+    .placeholder-ribbon {
+      position: absolute;
+      top: 78px;
+      right: 112px;
+      z-index: 8;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(242, 95, 76, 0.96);
+      color: white;
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .timeline {
+      position: absolute;
+      left: 156px;
+      right: 156px;
+      bottom: 128px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+
+    .timeline-step {
+      min-height: 138px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(13, 28, 20, 0.78);
+    }
+
+    .timeline-step b {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--mint);
+      font-size: 26px;
+    }
+
+    .timeline-step span {
+      display: block;
+      color: var(--muted);
+      font-size: 22px;
+      line-height: 1.3;
+    }
+
+    .flow {
+      position: absolute;
+      left: 142px;
+      right: 142px;
+      top: 404px;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .flow-node {
+      position: relative;
+      min-height: 150px;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(13, 28, 20, 0.82);
+      text-align: center;
+      font-size: 25px;
+      font-weight: 900;
+    }
+
+    .flow-node::after {
+      content: ">";
+      position: absolute;
+      right: -18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--leaf);
+      font-size: 34px;
+    }
+
+    .flow-node:last-child::after { content: ""; }
+
+    .impact-grid {
+      position: absolute;
+      left: 112px;
+      right: 112px;
+      top: 374px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .impact {
+      min-height: 245px;
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(13, 28, 20, 0.82);
+    }
+
+    .impact b {
+      display: block;
+      margin-bottom: 14px;
+      color: var(--mint);
+      font-size: 28px;
+    }
+
+    .impact span {
+      color: var(--muted);
+      font-size: 23px;
+      line-height: 1.36;
+    }
+
+    .closing {
+      position: absolute;
+      left: 112px;
+      bottom: 146px;
+      max-width: 1240px;
+    }
+
+    .closing h2 {
+      font-size: 88px;
+      margin-bottom: 26px;
+    }
+
+    .safe-copy {
+      position: absolute;
+      right: 112px;
+      bottom: 150px;
+      width: 470px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(7, 16, 11, 0.78);
+      color: var(--muted);
+      font-size: 25px;
+      line-height: 1.34;
+    }
+  </style>
+</head>
+<body>
+  <main
+    id="stage"
+    data-composition-id="gemma-garden-guardian-demo"
+    data-start="0"
+    data-width="960"
+    data-height="540"
+    data-duration="180"
+  >
+    <section id="scene-problem" class="clip scene" data-start="0" data-duration="20" data-track-index="1">
+      <div class="bg-photo"></div>
+      <div style="position:relative; max-width: 1040px;">
+        <div class="kicker"><span class="dot"></span> Kaggle Gemma 4 Good Hackathon</div>
+        <h1>Gemma Garden Guardian</h1>
+        <p>An AI field assistant that turns everyday crop photos into safer, clearer next actions.</p>
+      </div>
+      <div class="problem-grid">
+        <div class="problem-card"><div class="problem-icon">!</div><strong>Early signs are subtle</strong><span>Yellow leaves, weeds, dry soil, and blurry photos are hard to interpret.</span></div>
+        <div class="problem-card"><div class="problem-icon">?</div><strong>Beginners need context</strong><span>Growers need observation support before jumping to conclusions.</span></div>
+        <div class="problem-card"><div class="problem-icon">+</div><strong>Local experts are limited</strong><span>Practical next steps matter when help is not immediately available.</span></div>
+        <div class="problem-card"><div class="problem-icon">✓</div><strong>Safer wording matters</strong><span>The assistant suggests possibilities, checks, and uncertainty.</span></div>
+      </div>
+      <div class="subtitle">Small-scale growers often spot changes in their plants before they know what those changes mean.</div>
+    </section>
+
+    <section id="scene-vision" class="clip scene" data-start="20" data-duration="25" data-track-index="1">
+      <div class="bg-photo"></div>
+      <div style="position:relative; max-width: 930px;">
+        <div class="kicker"><span class="dot"></span> Vision</div>
+        <h2>Observe carefully. Act earlier. Stay practical.</h2>
+        <p>Gemma Garden Guardian is not a plant disease diagnosis tool. It helps growers review visible signs, uncertainty, and next actions with Gemma 4.</p>
+      </div>
+      <div class="device-wrap">
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="scan-line"></div>
+            <div class="marker m1"></div>
+            <div class="marker m2"></div>
+            <div class="marker m3"></div>
+            <div class="mini-panel">
+              <div class="risk-row"><strong>Visible risk</strong><span>moderate</span></div>
+              <div class="bar"><span></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="subtitle">The goal is to help people observe more carefully, act earlier, and make safer next decisions.</div>
+    </section>
+
+    <section id="scene-demo-placeholder" class="clip scene" data-start="45" data-duration="55" data-track-index="1">
+      <div class="placeholder-ribbon">placeholder demo footage</div>
+      <div class="browser">
+        <div class="browser-top"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span></div>
+        <div class="app-grid">
+          <aside class="sidebar">
+            <h3 style="margin:0;font-size:30px;">Garden Photo Analysis</h3>
+            <div class="field upload-box">Tomato photo uploaded</div>
+            <div class="field">Crop type: tomato</div>
+            <div class="field">Notes: yellowing lower leaves, dry soil</div>
+            <div class="button">Analyze with Gemma 4</div>
+          </aside>
+          <section class="main">
+            <div class="headline-row">
+              <h3>Observation Dashboard</h3>
+              <div class="status-pill">Validated JSON</div>
+            </div>
+            <div class="dashboard-grid">
+              <div class="dash-card">
+                <h4>Summary</h4>
+                <ul>
+                  <li>Visible signs suggest the plant may need closer water and leaf checks.</li>
+                  <li>Risk level is moderate with uncertainty noted.</li>
+                </ul>
+              </div>
+              <div class="dash-card">
+                <h4>Risk score</h4>
+                <div class="score">56</div>
+              </div>
+              <div class="dash-card">
+                <h4>Recommended actions</h4>
+                <ul>
+                  <li>Check soil moisture near the root zone.</li>
+                  <li>Remove weeds and improve airflow.</li>
+                  <li>Take a clearer leaf underside photo.</li>
+                </ul>
+              </div>
+              <div class="dash-card">
+                <h4>History and report</h4>
+                <ul>
+                  <li>JSONL observation log saved locally.</li>
+                  <li>Todos and weekly report generated.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+      <div class="subtitle">Gemma 4 reads the image and notes together, then returns structured JSON that the app validates before showing the dashboard.</div>
+    </section>
+
+    <section id="scene-technical" class="clip scene" data-start="100" data-duration="40" data-track-index="1">
+      <div class="kicker"><span class="dot"></span> Technical Workflow</div>
+      <h2>Python, Streamlit, Vertex AI, and a local tool layer.</h2>
+      <p>Mock mode keeps recording reliable. Cloud mode calls Gemma 4 MaaS through Vertex AI with image, crop type, notes, and strict JSON instructions.</p>
+      <div class="flow">
+        <div class="flow-node">User</div>
+        <div class="flow-node">Streamlit</div>
+        <div class="flow-node">Gemma 4</div>
+        <div class="flow-node">JSON</div>
+        <div class="flow-node">Tool Layer</div>
+        <div class="flow-node">Dashboard</div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-step"><b>Multimodal</b><span>Crop image plus notes are sent together.</span></div>
+        <div class="timeline-step"><b>Schema</b><span>Responses are validated and repaired safely.</span></div>
+        <div class="timeline-step"><b>Todos</b><span>Recommendations become practical action items.</span></div>
+        <div class="timeline-step"><b>Logging</b><span>Observations are saved to JSONL history.</span></div>
+        <div class="timeline-step"><b>Fallback</b><span>Mock and error handling keep the demo stable.</span></div>
+      </div>
+      <div class="subtitle">If the API fails or JSON is malformed, the app falls back safely instead of crashing.</div>
+    </section>
+
+    <section id="scene-impact" class="clip scene" data-start="140" data-duration="25" data-track-index="1">
+      <div class="bg-photo"></div>
+      <div style="position:relative;">
+        <div class="kicker"><span class="dot"></span> Impact</div>
+        <h2>Better observation habits for small gardens and small farms.</h2>
+        <p>Useful for home gardeners, community gardens, elderly growers, and people with limited expert access.</p>
+      </div>
+      <div class="impact-grid">
+        <div class="impact"><b>Clearer photos</b><span>Guides users toward better follow-up images.</span></div>
+        <div class="impact"><b>Earlier checks</b><span>Encourages soil moisture, airflow, and history comparison.</span></div>
+        <div class="impact"><b>Safer language</b><span>Uses possible risks and uncertainty instead of overconfident diagnosis.</span></div>
+        <div class="impact"><b>Practical action</b><span>Turns observations into simple next-step todos.</span></div>
+      </div>
+      <div class="subtitle">The impact is not just faster answers. It is helping people build a habit of better observation.</div>
+    </section>
+
+    <section id="scene-closing" class="clip scene" data-start="165" data-duration="15" data-track-index="1">
+      <div class="bg-photo"></div>
+      <div class="closing">
+        <div class="kicker"><span class="dot"></span> Gemma Garden Guardian</div>
+        <h2>Safer, clearer next actions from everyday garden photos.</h2>
+        <p>AI should not replace growers. It should help them observe, learn, and act with confidence.</p>
+      </div>
+      <div class="safe-copy">Designed for a Kaggle demo: working MVP, structured JSON, local logging, mock mode, and uncertainty-aware recommendations.</div>
+    </section>
+    <audio
+      id="narration"
+      src="narration_180.m4a"
+      data-start="0"
+      data-duration="180"
+      data-track-index="2"
+    ></audio>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <script>
+    window.__timelines = window.__timelines || {};
+    window.__timelines["gemma-garden-guardian-demo"] = gsap.timeline({ paused: true });
+  </script>
+</body>
+</html>

@@ -54,7 +54,10 @@
 - [x] Finish README
 - [x] Finish Kaggle writeup draft
 - [x] Finish video script
-- [ ] Record 3-minute demo
+- [x] Create HyperFrames draft video composition with placeholder demo footage
+- [x] Render 3-minute HyperFrames preview MP4 with placeholder demo footage
+- [x] Add generated English narration to the preview MP4
+- [ ] Record and replace real 3-minute app demo footage
 - [x] Publish GitHub repository
 - [x] Add Cloud Run deployment docs
 - [ ] Deploy live demo if possible
@@ -79,3 +82,13 @@ streamlit run app.py
 ```
 
 Record screenshots and a short demo video. Use mock mode for cheap repeated takes, and vertex mode for one real Gemma 4 proof point.
+
+Video draft milestone:
+
+```text
+demo_video/index.html
+demo_video_preview/gemma_garden_guardian_demo_preview.mp4
+demo_video_preview/gemma_garden_guardian_demo_preview_with_audio.mp4
+```
+
+Render this HyperFrames composition as a draft, then replace the placeholder demo segment with the real Streamlit screen recording.
